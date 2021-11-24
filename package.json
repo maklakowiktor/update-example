@@ -1,0 +1,45 @@
+{
+    "name": "electron-updater-generic-example",
+    "version": "0.2.2",
+    "main": "main.js",
+    "description": "electron-updater generic example project",
+    "author": "Web Kotlas",
+    "scripts": {
+        "start": "electron . --no-sandbox",
+        "build": "electron-builder"
+    },
+    "devDependencies": {
+        "electron": "^16.0.1",
+        "electron-builder": "^22.14.5",
+        "http-server": "^14.0.0"
+    },
+    "dependencies": {
+        "electron-log": "^4.4.1",
+        "electron-updater": "^4.6.1"
+    },
+    "build": {
+        "publish": [
+            {
+                "provider": "generic",
+                "url": "http://127.0.0.1:8080/",
+                "publishAutoUpdate": true
+            }
+        ],
+        "appId": "com.github.iffy.electronupdatergenericexample",
+        "win": {
+            "target": "nsis",
+            "verifyUpdateCodeSignature": false
+        },
+        "mac": {
+            "category": "your.app.category.type",
+            "target": [
+                "zip",
+                "dmg"
+            ]
+        },
+        "nsis": {
+            "oneClick": false,
+            "perMachine": true
+        }
+    }
+}
